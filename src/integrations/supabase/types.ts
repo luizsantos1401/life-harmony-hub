@@ -44,6 +44,42 @@ export type Database = {
         }
         Relationships: []
       }
+      goals: {
+        Row: {
+          completed: boolean | null
+          created_at: string | null
+          deadline: string | null
+          description: string | null
+          id: string
+          progress: number | null
+          title: string
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          completed?: boolean | null
+          created_at?: string | null
+          deadline?: string | null
+          description?: string | null
+          id?: string
+          progress?: number | null
+          title: string
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          completed?: boolean | null
+          created_at?: string | null
+          deadline?: string | null
+          description?: string | null
+          id?: string
+          progress?: number | null
+          title?: string
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
       habit_completions: {
         Row: {
           completed_at: string | null
@@ -168,28 +204,46 @@ export type Database = {
       }
       profiles: {
         Row: {
+          age: number | null
           avatar_url: string | null
+          bio: string | null
           created_at: string | null
+          height: number | null
           id: string
+          life_goals: string | null
           name: string
+          profession: string | null
           updated_at: string | null
           user_id: string
+          weight: number | null
         }
         Insert: {
+          age?: number | null
           avatar_url?: string | null
+          bio?: string | null
           created_at?: string | null
+          height?: number | null
           id?: string
+          life_goals?: string | null
           name: string
+          profession?: string | null
           updated_at?: string | null
           user_id: string
+          weight?: number | null
         }
         Update: {
+          age?: number | null
           avatar_url?: string | null
+          bio?: string | null
           created_at?: string | null
+          height?: number | null
           id?: string
+          life_goals?: string | null
           name?: string
+          profession?: string | null
           updated_at?: string | null
           user_id?: string
+          weight?: number | null
         }
         Relationships: []
       }
