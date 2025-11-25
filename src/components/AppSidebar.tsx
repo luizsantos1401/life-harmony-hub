@@ -10,6 +10,7 @@ import {
   FileText,
   User,
   LogOut,
+  Sparkles,
 } from "lucide-react";
 import {
   Sidebar,
@@ -33,6 +34,7 @@ const items = [
   { title: "Treino", url: "/treino", icon: Dumbbell },
   { title: "Dieta", url: "/dieta", icon: Utensils },
   { title: "Anotações", url: "/anotacoes", icon: FileText },
+  { title: "Gerar Plano IA", url: "/gerar-plano", icon: Sparkles },
   { title: "Perfil", url: "/perfil", icon: User },
 ];
 
