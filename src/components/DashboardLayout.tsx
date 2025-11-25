@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { AppSidebar } from "./AppSidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { Loader2 } from "lucide-react";
 
 interface DashboardLayoutProps {
@@ -48,8 +49,9 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
       <div className="min-h-screen flex w-full bg-background">
         <AppSidebar />
         <div className="flex-1 flex flex-col">
-          <header className="sticky top-0 z-10 flex h-14 items-center border-b border-border bg-card/50 backdrop-blur-sm px-4">
+          <header className="sticky top-0 z-10 flex h-14 items-center justify-between border-b border-border bg-card/50 backdrop-blur-sm px-4">
             <SidebarTrigger />
+            <ThemeToggle />
           </header>
           <main className="flex-1 p-6">{children}</main>
         </div>
