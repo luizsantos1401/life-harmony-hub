@@ -7,6 +7,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Separator } from "@/components/ui/separator";
+import { FoodPhotoAnalyzer } from "@/components/dieta/FoodPhotoAnalyzer";
 import { toast } from "sonner";
 import { Plus, UtensilsCrossed } from "lucide-react";
 
@@ -78,6 +80,17 @@ const Dieta = () => {
     loadMeals();
   };
 
+  const handleAnalysisComplete = (result: any) => {
+    setFormData({
+      ...formData,
+      foods: result.foods.join(", "),
+      protein: result.protein.toString(),
+      carbs: result.carbs.toString(),
+      fats: result.fats.toString(),
+      calories: result.calories.toString(),
+    });
+  };
+
   return (
     <DashboardLayout>
       <div className="space-y-6">
@@ -96,10 +109,24 @@ const Dieta = () => {
                 Registrar Refeição
               </Button>
             </DialogTrigger>
-            <DialogContent>
+            <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
               <DialogHeader>
                 <DialogTitle>Registrar Refeição</DialogTitle>
               </DialogHeader>
+
+              <FoodPhotoAnalyzer onAnalysisComplete={handleAnalysisComplete} />
+
+              <div className="relative">
+                <div className="absolute inset-0 flex items-center">
+                  <span className="w-full border-t" />
+                </div>
+                <div className="relative flex justify-center text-xs uppercase">
+                  <span className="bg-background px-2 text-muted-foreground">
+                    Ou preencha manualmente
+                  </span>
+                </div>
+              </div>
+
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="space-y-2">
                   <Label>Tipo de Refeição</Label>

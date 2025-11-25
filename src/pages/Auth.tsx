@@ -6,7 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
-import { Loader2, Sparkles } from "lucide-react";
+import { Loader2 } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Auth = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -17,7 +18,6 @@ const Auth = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check if user is already logged in
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session) {
         navigate("/dashboard");
@@ -63,24 +63,27 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-muted/20 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-background p-4 relative">
+      <div className="absolute top-6 right-6">
+        <ThemeToggle />
+      </div>
+      
       <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-4">
-            <Sparkles className="w-8 h-8 text-primary" />
-          </div>
-          <h1 className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-            LifeFlow
+        <div className="text-center mb-12">
+          <h1 className="text-6xl font-light tracking-[0.3em] mb-2 text-foreground">
+            ESSENZA
           </h1>
-          <p className="text-muted-foreground mt-2">
-            Organize sua vida pessoal e financeira
+          <p className="text-muted-foreground text-sm font-light tracking-wider">
+            Organize sua vida com elegância
           </p>
         </div>
 
-        <Card className="card-soft">
+        <Card className="border-border/50 shadow-elegant">
           <CardHeader>
-            <CardTitle>{isLogin ? "Entrar" : "Criar Conta"}</CardTitle>
-            <CardDescription>
+            <CardTitle className="text-2xl font-light">
+              {isLogin ? "Entrar" : "Criar Conta"}
+            </CardTitle>
+            <CardDescription className="font-light">
               {isLogin
                 ? "Entre com suas credenciais para continuar"
                 : "Preencha os dados para criar sua conta"}
@@ -90,7 +93,7 @@ const Auth = () => {
             <form onSubmit={handleAuth} className="space-y-4">
               {!isLogin && (
                 <div className="space-y-2">
-                  <Label htmlFor="name">Nome</Label>
+                  <Label htmlFor="name" className="font-light">Nome</Label>
                   <Input
                     id="name"
                     type="text"
@@ -98,12 +101,13 @@ const Auth = () => {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
+                    className="font-light"
                   />
                 </div>
               )}
 
               <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email" className="font-light">Email</Label>
                 <Input
                   id="email"
                   type="email"
@@ -111,11 +115,12 @@ const Auth = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
+                  className="font-light"
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="password">Senha</Label>
+                <Label htmlFor="password" className="font-light">Senha</Label>
                 <Input
                   id="password"
                   type="password"
@@ -124,12 +129,13 @@ const Auth = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   minLength={6}
+                  className="font-light"
                 />
               </div>
 
               <Button
                 type="submit"
-                className="w-full"
+                className="w-full font-light tracking-wide"
                 disabled={loading}
               >
                 {loading ? (
@@ -148,7 +154,7 @@ const Auth = () => {
                 <button
                   type="button"
                   onClick={() => setIsLogin(!isLogin)}
-                  className="text-primary hover:underline"
+                  className="text-primary hover:underline font-light"
                 >
                   {isLogin
                     ? "Não tem uma conta? Cadastre-se"

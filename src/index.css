@@ -137,6 +137,18 @@ All colors MUST be HSL.
     @apply shadow-[var(--shadow-medium)];
   }
 
+  .card-soft {
+    @apply shadow-[var(--shadow-soft)];
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+
   .gradient-subtle {
     background: var(--gradient-subtle);
   }

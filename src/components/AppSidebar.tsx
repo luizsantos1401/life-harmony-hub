@@ -11,6 +11,7 @@ import {
   User,
   LogOut,
   Sparkles,
+  Newspaper,
 } from "lucide-react";
 import {
   Sidebar,
@@ -35,6 +36,7 @@ const items = [
   { title: "Dieta", url: "/dieta", icon: Utensils },
   { title: "Anotações", url: "/anotacoes", icon: FileText },
   { title: "Gerar Plano IA", url: "/gerar-plano", icon: Sparkles },
+  { title: "Notícias", url: "/noticias", icon: Newspaper },
   { title: "Perfil", url: "/perfil", icon: User },
 ];
 
