@@ -13,6 +13,8 @@ import Anotacoes from "./pages/Anotacoes";
 import Perfil from "./pages/Perfil";
 import GerarPlano from "./pages/GerarPlano";
 import Noticias from "./pages/Noticias";
+import ChatIA from "./pages/ChatIA";
+import Configuracoes from "./pages/Configuracoes";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +37,8 @@ const App = () => (
           <Route path="/perfil" element={<Perfil />} />
           <Route path="/gerar-plano" element={<GerarPlano />} />
           <Route path="/noticias" element={<Noticias />} />
+          <Route path="/chat-ia" element={<ChatIA />} />
+          <Route path="/configuracoes" element={<Configuracoes />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
