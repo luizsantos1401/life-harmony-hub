@@ -5,3 +5,9 @@ verify_jwt = false
 
 [functions.analyze-food]
 verify_jwt = false
+
+[functions.ai-chat]
+verify_jwt = true
+
+[functions.automate-finances]
+verify_jwt = false

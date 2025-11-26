@@ -12,6 +12,8 @@ import {
   LogOut,
   Sparkles,
   Newspaper,
+  MessageCircle,
+  Settings,
 } from "lucide-react";
 import {
   Sidebar,
@@ -37,6 +39,8 @@ const items = [
   { title: "Anotações", url: "/anotacoes", icon: FileText },
   { title: "Gerar Plano IA", url: "/gerar-plano", icon: Sparkles },
   { title: "Notícias", url: "/noticias", icon: Newspaper },
+  { title: "Chat com IA", url: "/chat-ia", icon: MessageCircle },
+  { title: "Configurações", url: "/configuracoes", icon: Settings },
   { title: "Perfil", url: "/perfil", icon: User },
 ];
 

@@ -14,6 +14,84 @@ export type Database = {
   }
   public: {
     Tables: {
+      ai_chat_messages: {
+        Row: {
+          content: string
+          created_at: string
+          id: string
+          role: string
+          user_id: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          id?: string
+          role: string
+          user_id: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          id?: string
+          role?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      daily_diet_completions: {
+        Row: {
+          created_at: string
+          date: string
+          id: string
+          total_calories: number
+          total_carbs: number
+          total_fats: number
+          total_protein: number
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          date?: string
+          id?: string
+          total_calories: number
+          total_carbs: number
+          total_fats: number
+          total_protein: number
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          date?: string
+          id?: string
+          total_calories?: number
+          total_carbs?: number
+          total_fats?: number
+          total_protein?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
+      diet_plans: {
+        Row: {
+          created_at: string
+          id: string
+          plan_content: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          plan_content: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          plan_content?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       financial_goals: {
         Row: {
           created_at: string | null
@@ -276,6 +354,42 @@ export type Database = {
           description?: string | null
           id?: string
           type?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_preferences: {
+        Row: {
+          color_expenses: string | null
+          color_income: string | null
+          color_investments: string | null
+          created_at: string
+          fixed_expenses: number | null
+          id: string
+          monthly_income: number | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          color_expenses?: string | null
+          color_income?: string | null
+          color_investments?: string | null
+          created_at?: string
+          fixed_expenses?: number | null
+          id?: string
+          monthly_income?: number | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          color_expenses?: string | null
+          color_income?: string | null
+          color_investments?: string | null
+          created_at?: string
+          fixed_expenses?: number | null
+          id?: string
+          monthly_income?: number | null
+          updated_at?: string
           user_id?: string
         }
         Relationships: []

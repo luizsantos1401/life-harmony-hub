@@ -113,6 +113,17 @@ const GerarPlano = () => {
 
       setGeneratedPlan(data.plan);
       toast.success("Plano gerado com sucesso!");
+      
+      // Se for dieta, salvar no banco de dados
+      if (type === "diet") {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (user) {
+          await supabase.from("diet_plans").insert([{
+            user_id: user.id,
+            plan_content: data.plan,
+          }]);
+        }
+      }
     } catch (error: any) {
       console.error("Error generating plan:", error);
       toast.error("Erro ao gerar plano. Tente novamente.");
